@@ -1,4 +1,3 @@
 # i-farm-2d
-java gaming
-
-random generated farming
+randomly generated farming game
+with the help of RyiSnow with his video "How to Make a 2D Game in Java" 
