@@ -93,6 +93,8 @@ public class GamePanel extends JPanel implements Runnable{
             playerX += playerSpeed;
         }
     }
+    
+    @Override
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
