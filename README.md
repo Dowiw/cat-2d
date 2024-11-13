@@ -1,7 +1,7 @@
 # cat-2d
 my first java project and my first project ever.
 
-crazy how i decided to make something so complicated.
+crazy how i decided to make something so complicated (from scratch).
 
 simple cat game where i hope to:
 - make the cat do things
