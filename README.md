@@ -3,3 +3,6 @@
 
 
 with help from (my first LEGEND) RyiSnow's tutorial: ["How to Make a 2D Game in Java"](https://www.youtube.com/watch?v=om59cwR7psI).
+
+player size is 16by16.
+window size is 
