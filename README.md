@@ -1,6 +1,7 @@
-# i-farm-2d
-## randomly generated farming game
-
+# cat-2d
+simple cat game where i hope to:
+- make the cat do things
+- have a cat intent in mind
 
 with help from (my first LEGEND) RyiSnow's tutorial: ["How to Make a 2D Game in Java"](https://www.youtube.com/watch?v=om59cwR7psI).
 
