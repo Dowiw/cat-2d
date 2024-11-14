@@ -92,38 +92,38 @@ public class Player extends Entity{
         BufferedImage image = null; 
 
         switch (direction) {
-        case "up":
+        case "up" -> {
             if(spriteNumber == 1) {
                 image = up1;
             }
             if(spriteNumber == 2) {
                 image = up2;
             }
-            break;
-        case "down":
+            }
+        case "down" -> {
             if(spriteNumber == 1) {
                 image = down1;
             }
             if(spriteNumber == 2) {
                 image = down2;
             }
-            break;
-        case "left":
+            }
+        case "left" -> {
             if(spriteNumber == 1) {
                 image = left1;
             }
             if(spriteNumber == 2) {
                 image = left2;
             }
-            break;
-        case "right":
+            }
+        case "right" -> {
             if(spriteNumber == 1) {
                 image = right1;
             }
             if(spriteNumber == 2) {
                 image = right2;
             }
-            break;
+            }
         }
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
 
