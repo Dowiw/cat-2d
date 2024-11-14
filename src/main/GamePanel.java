@@ -10,10 +10,12 @@ import src.entity.Player;
 public class GamePanel extends JPanel implements Runnable{
 
     //Screen settings
-    final int originalTileSize = 16; //Default Size
-    final int scale = 3;
+    final int originalTileSize = 16; //Default Size for a tile (pixel based)
+    final int scale = 3; //Pixel Scaler
 
-    public final int tileSize = originalTileSize * scale; //48
+    public final int tileSize = originalTileSize * scale; //Default Size for a scaled tile
+
+    //Screen size
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol;
@@ -22,10 +24,12 @@ public class GamePanel extends JPanel implements Runnable{
     //FPS
     int FPS = 60;
 
+    //Runners
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this, keyH);
 
+    //Game Panel method
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -35,12 +39,14 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
 
+    //Thread to start
     public void startGameThread() {
 
         gameThread = new Thread(this);
         gameThread.start();
     }
 
+    //Game Loop
     @Override
     public void run() {
 
@@ -75,11 +81,14 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
+
+    //Update Method
     public void update() {
 
         player.update();
     }
     
+    //Paint Method
     @Override
     public void paintComponent(Graphics g) {
 

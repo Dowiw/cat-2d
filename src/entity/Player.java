@@ -21,15 +21,17 @@ public class Player extends Entity{
         getPlayerImage();
     }
 
+    //Player Position
     public void setDefaultValues() {
         
         x = 100;
         y = 100;
         speed = 4;
-        direction = "down";
+        direction = "down"; //Player Facing
 
     }
 
+    //Player Images
     public void getPlayerImage() {
 
         try {
@@ -66,10 +68,9 @@ public class Player extends Entity{
             x += speed;
         }
     }
+
+    //Player Renderer
     public void draw(Graphics2D g2) {
-        
-        // g2.setColor(Color.white);
-        // g2.fillRect(x, y, gp.tileSize, gp.tileSize);
 
         BufferedImage image = null; 
 
