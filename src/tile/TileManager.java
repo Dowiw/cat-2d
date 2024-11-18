@@ -11,8 +11,8 @@ import src.main.GamePanel;
 public final class TileManager {
 
     GamePanel gp;
-    Tile[] tile;
-    int mapTileNum[][];
+    public Tile[] tile;
+    public int mapTileNum[][];
 
     public TileManager(GamePanel gp) {
 
@@ -52,7 +52,6 @@ public final class TileManager {
             tile[5].collision = true;
 
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -60,30 +59,29 @@ public final class TileManager {
         
         try {
             InputStream is = getClass().getResourceAsStream(filePath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-            int col = 0;
-            int row = 0;
-
-            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
-
-                String line = br.readLine();
-
-                while (col < gp.maxWorldCol) {
-
-                    String numbers[] = line.split(" ");
-
-                    int num = Integer.parseInt(numbers[col]);
-
-                    mapTileNum[col][row] = num;
-                    col++;
-                }
-                if(col == gp.maxWorldCol) {
-                    col = 0;
-                    row++;
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+                int col = 0;
+                int row = 0;
+                
+                while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
+                    
+                    String line = br.readLine();
+                    
+                    while (col < gp.maxWorldCol) {
+                        
+                        String numbers[] = line.split(" ");
+                        
+                        int num = Integer.parseInt(numbers[col]);
+                        
+                        mapTileNum[col][row] = num;
+                        col++;
+                    }
+                    if(col == gp.maxWorldCol) {
+                        col = 0;
+                        row++;
+                    }
                 }
             }
-            br.close();
 
         } catch (Exception e) {
 
