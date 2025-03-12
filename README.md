@@ -1,4 +1,6 @@
 # cat-2d
+project is on a pause because og work lol
+
 my first java project and my first project ever.
 
 crazy how i decided to make something so complicated (from scratch).
@@ -11,4 +13,4 @@ with help from (a legend) RyiSnow's tutorial: ["How to Make a 2D Game in Java"](
 
 player size is 16by16.
 
-window size is 
+
