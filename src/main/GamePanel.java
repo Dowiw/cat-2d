@@ -44,8 +44,8 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
-        this.setDoubleBuffered(true);
-        this.addKeyListener(keyH);
+        this.setDoubleBuffered(true); //Thread
+        this.addKeyListener(keyH); //Keys
         this.setFocusable(true);
     }
 
@@ -66,7 +66,6 @@ public class GamePanel extends JPanel implements Runnable{
         long currentTime;
 
         while(gameThread != null) {
-
             currentTime = System.nanoTime();
 
             delta += (currentTime - lastTime) / drawInterval;
