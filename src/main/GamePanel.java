@@ -41,62 +41,56 @@ public class GamePanel extends JPanel implements Runnable{
 
 	//Game Panel constructor
 	public GamePanel() {
-
-	this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-	this.setBackground(Color.black);
-	this.setDoubleBuffered(true); //Thread
-	this.addKeyListener(keyH); //Keys
-	this.setFocusable(true);
+		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true); //Thread
+		this.addKeyListener(keyH); //Keys
+		this.setFocusable(true);
 	}
 
 	//Thread to start
 	public void startGameThread() {
-
-	gameThread = new Thread(this);
-	gameThread.start();
+		gameThread = new Thread(this);
+		gameThread.start();
 	}
 
 	//Game Loop
 	@Override
 	public void run() {
+		double drawInterval = 1000000000/FPS;
+		double delta = 0;
+		long lastTime = System.nanoTime();
+		long currentTime;
 
-	double drawInterval = 1000000000/FPS;
-	double delta = 0;
-	long lastTime = System.nanoTime();
-	long currentTime;
+		while (gameThread != null) {
+			currentTime = System.nanoTime();
 
-	while(gameThread != null) {
-	currentTime = System.nanoTime();
+			delta += (currentTime - lastTime) / drawInterval;
+			lastTime = currentTime;
 
-	delta += (currentTime - lastTime) / drawInterval;
-	lastTime = currentTime;
-
-	if (delta >= 1) {
-	update(); //Call updater
-
-	repaint(); //Call paintComponent
-
-	delta--;
-	}
-	}
+			if (delta >= 1) {
+				update(); //Call updater
+				repaint(); //Call paintComponent
+				delta--;
+			}
+		}
 	}
 
 	//Update Method for Character Positions
 	public void update() {
-
-	player.update();
+		player.update();
 	}
 
 	//Paint Method for Drawing Panel using Update
 	@Override
 	public void paintComponent(Graphics g) {
 
-	super.paintComponent(g); //A formatting method
-	Graphics2D g2 = (Graphics2D)g; //Functionality
+		super.paintComponent(g); //A formatting method
+		Graphics2D g2 = (Graphics2D)g; //Functionality
 
-	tileM.draw(g2);
-	player.draw(g2);
+		tileM.draw(g2);
+		player.draw(g2);
 
-	g2.dispose();
+		g2.dispose();
 	}
 }
