@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 import src.main.GamePanel;
 import src.main.KeyHandler;
 
-public class Player extends Entity{
+public final class Player extends Entity{
 
 	GamePanel gp;
 	KeyHandler keyH;
