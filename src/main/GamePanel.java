@@ -17,10 +17,10 @@ public class GamePanel extends JPanel implements Runnable{
     public final int tileSize = originalTileSize * scale; //Default Size for a scaled tile
 
     //Screen size
-    public final int maxScreenCol = 16;
-    public final int maxScreenRow = 12;
-    public final int screenWidth = tileSize * maxScreenCol;
-    public final int screenHeight = tileSize * maxScreenRow;
+    public final int maxScreenCol = 16; //Default 16
+    public final int maxScreenRow = 12; //Default 12
+    public final int screenWidth = tileSize * maxScreenCol; //Width of Panel
+    public final int screenHeight = tileSize * maxScreenRow; //Height of Panel
 
     //Main World Settings
     public final int maxWorldCol = 50;
@@ -39,8 +39,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this, keyH);
     public Exception gp;
 
-
-    //Game Panel method
+    //Game Panel constructor
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -74,31 +73,31 @@ public class GamePanel extends JPanel implements Runnable{
             lastTime = currentTime;
 
             if (delta >= 1) {
-                update();
+                update(); //Call updater
 
-                repaint();
+                repaint(); //Call paintComponent
 
                 delta--;
             }
         }
     }
 
-    //Update Method
+    //Update Method for Character Positions
     public void update() {
 
         player.update();
     }
-    
-    //Paint Method
+
+    //Paint Method for Drawing Panel using Update
+    @Override
     public void paintComponent(Graphics g) {
 
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
+        super.paintComponent(g); //A formatting method
+        Graphics2D g2 = (Graphics2D)g; //Functionality
 
         tileM.draw(g2);
         player.draw(g2);
 
         g2.dispose();
-
     }
 }
