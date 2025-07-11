@@ -1,7 +1,8 @@
 # cat-2d
-project is on a pause because og work lol
+project is on a pause because og work lol.
 
-my first java project and my first project ever.
+my first java project and my first project ever. and my favorite repo.
+i just wish i had time to code things up....
 
 crazy how i decided to make something so complicated (from scratch).
 
